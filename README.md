@@ -23,7 +23,7 @@
     ```
 2.  **Перейдите в директорию проекта:**
     ```bash
-    cd georgian-cuisine
+    cd sapevari-cuisine
     ```
 3.  ** Если используется vs code **
 
