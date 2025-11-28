@@ -204,9 +204,17 @@ README
 Архитектура проекта построена по микросервисной модели, что обеспечивает гибкость и масштабируемость системы. Клиентская часть реализована на современном фреймворке Vue.js, серверная часть использует Node.js с Express, а для хранения данных применяется комбинация PostgreSQL для структурированных данных  для пользовательского контента.
 
 
+```mermaid
+graph TD
+    A[Начало разработки] --> B{Процесс}
+    B --> C[Разработка Frontend]
+    B --> D[Разработка Backend]
+    C --> E[Разработка баз данных]
+    D --> E[Тестирование]
+```
 
-**Последнее обновление**: 15.02.2024  
-**Следующее обновление дорожной карты**: 01.03.2024
+
+
 3.2. Frontend архитектура
 
 Основные компоненты:
@@ -253,29 +261,6 @@ cooking_sessions - сессии приготовления
 
 
 
-**4.2. Основные endpoints и их функциональность**
-
-
-
-**Пользователи — управление персональными данными**
-Модуль пользователей обеспечивает всю функциональность, связанную с управлением учетными записями, аутентификацией и персональными данными.
-
-```javascript
-POST   /auth/register     # Регистрация нового пользователя с валидацией
-POST   /auth/login        # Аутентификация пользователя
-GET    /users/profile     # Получение полного профиля пользователя
-PUT    /users/profile     # Обновление информации в профиле
-```
-
-**Меню — конструктор гастрономических композиций**
-Модуль меню предоставляет инструменты для создания сбалансированных гастрономических композиций, учитывающих множество факторов.
-
-```javascript
-POST   /menus             # Создание нового меню с автоматической валидацией
-GET    /menus             # Получение списка меню пользователя с фильтрацией
-GET    /menus/:id         # Детальное получение информации о меню
-POST   /menus/generate    # Генерация меню по заданным параметрам
-```
 
 
 
@@ -365,29 +350,6 @@ POST   /menus/generate    # Генерация меню по заданным п
  **6.1. Интеллектуальный алгоритм составления меню**
 Алгоритм конструктора меню представляет собой сложную систему, сочетающую правила грузинской кулинарной традиции с современными технологиями. Система анализирует множество факторов для создания сбалансированных и аутентичных гастрономических композиций, учитывающих как технические параметры, так и культурные особенности.
 
-```javascript
-function createMenu(occasion, guests, preferences) {
-  // Анализ параметров мероприятия и гостей
-  const menuParams = analyzeOccasion(occasion, guests);
-  
-  // Подбор блюд по категориям с учетом предпочтений
-  const appetizers = selectAppetizers(menuParams, preferences);
-  const mainCourses = selectMainCourses(menuParams, preferences);
-  const desserts = selectDesserts(menuParams, preferences);
-  
-  // Комплексная проверка сочетаемости блюд
-  const compatibility = checkDishCompatibility(appetizers, mainCourses, desserts);
-  
-  // Формирование итогового меню с дополнительной информацией
-  return {
-    dishes: combineDishes(appetizers, mainCourses, desserts),
-    compatibilityScore: compatibility.score,
-    totalTime: calculateTotalPreparationTime(appetizers, mainCourses, desserts),
-    shoppingList: generateShoppingList(appetizers, mainCourses, desserts, guests),
-    nutritionalInfo: calculateNutritionalBalance(appetizers, mainCourses, desserts)
-  };
-}
-```
 
  **6.2. Многоэтапный процесс создания идеального меню**
 Этап 1: Определение цели и параметров мероприятия
