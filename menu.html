@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - Саперави</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Саперави</h1>
+            <p>Настоящая грузинская кухня</p>
+        </div>
+      <nav>
+    <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/about.html">О нас</a></li>
+        <li><a href="/menu.html">Меню</a></li>
+        <li><a href="/#reservation">Забронировать стол</a></li>
+        <li><a href="/#contacts">Контакты</a></li>
+    </ul>
+</nav>
+    </header>
+
+    <main>
+        <section id="menu-hero">
+            <h2>Наше меню</h2>
+            <p>Откройте для себя настоящие вкусы Грузии</p>
+        </section>
+
+        <section id="menu-filters">
+            <h3>Категории блюд</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Все блюда</button>
+                <button class="filter-btn" data-category="bread">Хлеб и выпечка</button>
+                <button class="filter-btn" data-category="appetizer">Закуски</button>
+                <button class="filter-btn" data-category="main">Основные блюда</button>
+                <button class="filter-btn" data-category="dessert">Десерты</button>
+                <button class="filter-btn" data-category="drinks">Напитки</button>
+            </div>
+        </section>
+
+        <section id="menu-items">
+            <div id="menu-container">
+                <!-- Меню будет загружено через JavaScript -->
+            </div>
+        </section>
+
+        <section id="special-offers">
+            <h2>Специальные предложения</h2>
+            <div class="offers-grid">
+                <article class="offer">
+                    <h3>Бизнес-ланч</h3>
+                    <p>С 12:00 до 16:00 по будням</p>
+                    <p>Суп, основное блюдо, салат и напиток</p>
+                    <span class="price">590 руб.</span>
+                </article>
+                <article class="offer">
+                    <h3>Семейный ужин</h3>
+                    <p>Для компании 4-6 человек</p>
+                    <p>Набор из 5 традиционных блюд</p>
+                    <span class="price">2 900 руб.</span>
+                </article>
+                <article class="offer">
+                    <h3>Дегустация вин</h3>
+                    <p>5 сортов грузинского вина с закусками</p>
+                    <p>Проводит наш сомелье</p>
+                    <span class="price">1 500 руб.</span>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <article class="social-links">
+                <h3>Мы в соцсетях</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-vk"></i> VK</a></li>
+                </ul>
+            </article>
+            <article class="newsletter">
+                <h3>Подпишитесь на рассылку</h3>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Ваш email" required>
+                    <button type="submit">Подписаться</button>
+                </form>
+            </article>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Ресторан грузинской кухни "Саперави". Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

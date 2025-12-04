@@ -1,0 +1,21 @@
+{
+  "name": "saperavi-restaurant",
+  "version": "1.0.0",
+  "description": "Сайт ресторана грузинской кухни Саперави",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "keywords": [
+    "restaurant",
+    "georgian",
+    "food"
+  ],
+  "author": "Saperavi Restaurant",
+  "license": "MIT"
+}

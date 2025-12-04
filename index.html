@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Саперави - Грузинская кухня</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/about.html">
+    <link rel="stylesheet" href="/menu.html">
+    <style>
+        /* SCSS  */
+        :root {
+            --color-primary: #8B0000;
+            --color-secondary: #DAA520;
+            --color-accent: #228B22;
+            --color-light: #FFF8DC;
+            --color-dark: #2F4F4F;
+        }
+
+        /* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80') center/cover no-repeat;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            
+            /* Flexbox для выравнивания шапки*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+            
+            /* Flexbox для логотипа */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            /* Flexbox для навигации */
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 15px; /*  отступы между элементами */
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 8px 15px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            color: var(--color-secondary);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Основа */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            
+            /*  Grid для  макета */
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        section {
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--color-dark);
+            margin: 20px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        /* Hero  */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 10px;
+            
+            /* Flexbox для выравнивания*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+
+        #hero h2 {
+            color: white;
+            font-size: 2.5rem;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        button {
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-dark);
+        }
+
+        /* Меню */
+        .menu-category {
+            margin-bottom: 40px;
+        }
+
+        .menu-item {
+            /* Flexbox для меню */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .menu-item-content {
+            flex: 1;
+        }
+
+        .menu-item p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .menu-item span {
+            font-weight: bold;
+            color: var(--color-primary);
+            font-size: 1.2rem;
+        }
+
+        /* Галерея */
+        .gallery-container {
+            /* Grid для галереи */
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Видео */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Формы */
+        form {
+            /* Grid для формы */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            grid-column: span 2;
+            min-height: 100px;
+        }
+
+        form button {
+            grid-column: span 2;
+            justify-self: center;
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Контакты */
+        .contact-info {
+            /*  Grid для контактной информации */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info article {
+            background: var(--color-light);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .map-container {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* подвал */
+        footer {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            /* Используем Grid для подвала */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+        }
+
+        .social-links ul {
+            list-style: none;
+        }
+
+        .social-links li {
+            margin: 10px 0;
+        }
+
+        .social-links a {
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter {
+            /* Flexbox для формы подписки */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .newsletter form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .newsletter input {
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* Адаптация */
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            
+            textarea, form button {
+                grid-column: 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter form {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Саперави</h1>
+            <p>Настоящая грузинская кухня</p>
+        </div>
+       <nav>
+    <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/about.html">О нас</a></li>
+        <li><a href="/menu.html">Меню</a></li>
+        <li><a href="/#reservation">Забронировать стол</a></li>
+        <li><a href="/#contacts">Контакты</a></li>
+    </ul>
+</nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>Добро пожаловать в Грузию!</h2>
+            <p>Погрузитесь в атмосферу гостеприимства и насладитесь аутентичными блюдами</p>
+            <button>Забронировать стол</button>
+        </section>
+
+        <section id="about">
+            <h2>О нашем кафе</h2>
+            <p>Ресторан "Саперави" предлагает гостям окунуться в атмосферу настоящей Грузии. Мы готовим по традиционным рецептам, используя только свежие продукты и специально привезенные специи.</p>
+            <p>Наш шеф-повар родом из Кахетии - региона, известного своим гостеприимством и кулинарными традициями.</p>
+            
+            <figure class="gallery-item">
+                <img src="/36/img/i.jpg" alt="Шеф-повар ресторана Саперави">
+                <figcaption>Наш шеф-повар Георгий</figcaption>
+            </figure>
+        </section>
+
+        <section id="menu">
+            <h2>Наше меню</h2>
+            
+            <article class="menu-category">
+                <h3>Хлеб и выпечка</h3>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Хачапури по-аджарски</h4>
+                        <p>Лодочка из теста с сыром сулугуни и яйцом</p>
+                    </div>
+                    <span>450 руб.</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Хачапури по-мегрельски</h4>
+                        <p>Сдобная лепешка с двойной порцией сыра</p>
+                    </div>
+                    <span>420 руб.</span>
+                </article>
+            </article>
+
+            <article class="menu-category">
+                <h3>Закуски</h3>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Пхали</h4>
+                        <p>Овощная закуска из шпината, грецких орехов и специй</p>
+                    </div>
+                    <span>320 руб.</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Лобио</h4>
+                        <p>Традиционная фасолевая закуска с грецкими орехами и кинзой</p>
+                    </div>
+                    <span>290 руб.</span>
+                </article>
+            </article>
+
+            <article class="menu-category">
+                <h3>Основные блюда</h3>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Хинкали</h4>
+                        <p>8 шт. Свинина и говядина с бульоном и специями</p>
+                    </div>
+                    <span>480 руб.</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Чанахи</h4>
+                        <p>Баранина, тушенная с баклажанами, картофелем и томатами</p>
+                    </div>
+                    <span>620 руб.</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Сациви</h4>
+                        <p>Курица в ореховом соусе с чесноком и специями</p>
+                    </div>
+                    <span>520 руб.</span>
+                </article>
+            </article>
+
+            <article class="menu-category">
+                <h3>Десерты</h3>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Чурчхела</h4>
+                        <p>Традиционная грузинская сладость из орехов в виноградном соке</p>
+                    </div>
+                    <span>280 руб.</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-content">
+                        <h4>Пеламуши</h4>
+                        <p>Десерт из виноградного сока и кукурузной муки</p>
+                    </div>
+                    <span>240 руб.</span>
+                </article>
+            </article>
+        </section>
+
+        <section id="gallery">
+            <h2>Галерея</h2>
+            <div class="gallery-container">
+                <figure class="gallery-item">
+                    <img src="/36/img/9d6073efbb5491a2b3817d32e257113b.jpg" alt="Интерьер ресторана">
+                    <figcaption>Интерьер нашего ресторана</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="/36/img/avxw3yujfg3ck5rkf637klja3iqdo19l-1.jpg" alt="Блюда грузинской кухни">
+                    <figcaption>Наши фирменные блюда</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="/36/img/8548dc29b8e11eeedeab8b1c625b01ae.jpg" alt="Интерьер зала">
+                    <figcaption>Уютная атмосфера</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="/36/img/eight.jpg" alt="Грузинские хачапури">
+                    <figcaption>Хачапури по-грузински</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="/36/img/osobennosti-gruzinskoy-kuhni_0f10a1c692fd9f2ed9ccb4ed11c58e6f.jpg" alt="Приготовление блюд">
+                    <figcaption>Наш повар за работой</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="/36/img/Пеламуши_150р._1.jpg" alt="Грузинские десерты">
+                    <figcaption>Традиционные десерты</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="/36/img/XXXL.webp" alt="Грузинские блюда">
+                    <figcaption>Наши лучшие блюда</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img src="/36/img/i.webp" alt="Грузинский стол">
+                    <figcaption>Праздничный стол</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="video">
+            <h2>Видео о нашем ресторане</h2>
+            <div class="video-container">
+                <iframe src="/36/img/mixkit-cooking-meat-balls-in-sauce-3806-hd-ready.mp4" title="Видео о ресторане грузинской кухни" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>Посмотрите, как мы готовим наши фирменные блюда и ощутите атмосферу настоящей Грузии!</p>
+        </section>
+
+        <section id="reservation">
+            <h2>Забронировать стол</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Дата</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Время</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Количество гостей</label>
+                    <input type="number" id="guests" name="guests" min="1" max="20" required>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Особые пожелания</label>
+                    <textarea id="comments" name="comments"></textarea>
+                </div>
+                <button type="submit">Отправить заявку</button>
+            </form>
+        </section>
+
+        <section id="contacts">
+            <h2>Контакты</h2>
+            <div class="contact-info">
+                <article class="address">
+                    <h3>Адрес</h3>
+                    <p>г. Москва, ул. Арбат, 25</p>
+                </article>
+                <article class="hours">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Чт: 11:00 - 23:00</p>
+                    <p>Пт-Сб: 11:00 - 01:00</p>
+                    <p>Вс: 11:00 - 23:00</p>
+                </article>
+                <article class="phone">
+                    <h3>Телефон</h3>
+                    <p>+7 (495) 123-45-67</p>
+                </article>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3729490453885!2d37.59541631604675!3d55.75202300015199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a45b11de355%3A0x8947e447a3b4c893!2z0JDRgNCx0LvRj9C0!5e0!3m2!1sru!2sru!4v1652103913171!5m2!1sru!2sru" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <article class="social-links">
+                <h3>Мы в соцсетях</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-vk"></i> VK</a></li>
+                </ul>
+            </article>
+            <article class="newsletter">
+                <h3>Подпишитесь на рассылку</h3>
+                <form>
+                    <input type="email" placeholder="Ваш email">
+                    <button type="submit">Подписаться</button>
+                </form>
+            </article>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Ресторан грузинской кухни "Саперави". Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
